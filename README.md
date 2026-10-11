@@ -39,6 +39,22 @@ Materiale utilizzato
 - Cavi dupont
 - (opzionale) case stampato 3D
 
+## Collegamenti elettrici
+
+Scheda: **ESP32** (Dev Module). Pin verificato sullo sketch (`DATA_PIN = 5`, FastLED, 512 LED WS2812B = due pannelli 8×32 in cascata).
+
+| Da | A |
+|---|---|
+| ESP32 **GPIO 5** | **DIN** del primo pannello (consigliata resistenza **330–470 Ω** in serie) |
+| **DOUT** primo pannello | **DIN** secondo pannello |
+| Alimentatore **+5V** | **5V** di entrambi i pannelli (iniettare l'alimentazione su ogni pannello) |
+| Alimentatore **GND** | **GND** di entrambi i pannelli **e GND dell'ESP32** |
+| Alimentatore +5V | **5V/VIN** dell'ESP32 (oppure alimenta l'ESP32 da USB) |
+
+- La **massa deve essere comune** tra ESP32, pannelli e alimentatore, altrimenti il segnale dati non funziona.
+- Mappatura: serpentina verticale, pannello inferiore ruotato di 180° (vedi la funzione di mapping nello sketch).
+- Alimentatore 5 V da almeno **2,5–3 A** (lo sketch limita il consumo della matrice a 2 A con `PSU_MAX_MA`) e condensatore da **1000 µF** tra 5V e GND vicino ai pannelli. Non alimentare la matrice dal pin 5V dell'ESP32.
+
 ## Contenuto del repository
 
 | Percorso | Descrizione |
