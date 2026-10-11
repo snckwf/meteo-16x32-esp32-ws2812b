@@ -1,0 +1,12 @@
+# credenziali locali
+secrets.h
+secrets.yaml
+# build
+build/
+*.bin
+*.elf
+*.map
+# sistema
+.vscode/
+Thumbs.db
+desktop.ini
